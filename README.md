@@ -1,4 +1,4 @@
-# gatsby-plugin-generate-types
+# gatsby-plugin-codegen
 
 Generate Typescript/Flow definitions from your gatsby queries.
 
@@ -6,7 +6,7 @@ Export schema and apollo config file to give autocomplete feature in vscode thro
 
 ## Install
 
-`npm install --save gatsby-plugin-generate-types`
+`npm install --save gatsby-plugin-codegen`
 
 ## How to use
 
@@ -15,7 +15,7 @@ Export schema and apollo config file to give autocomplete feature in vscode thro
 plugins: [
   // other plugins
   {
-    resolve: "gatsby-plugin-generate-types",
+    resolve: "gatsby-plugin-codegen",
     options: {}
   }
 ];
