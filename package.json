@@ -1,0 +1,28 @@
+{
+  "name": "gatsby-plugin-generate-types",
+  "version": "1.0.0",
+  "description": "Wrapper of apollo:codegen to generate client side types from your queries as well as the gatsby schema & apollo config to provide autocomplete with apollographql.vscode-apollo",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p ./",
+    "watch": "tsc -p ./ -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Denis Augsburger <denis.augsburger@twteam.ch> (https://twteam.ch)",
+  "license": "MIT",
+  "dependencies": {
+    "apollo": "^2.18.0",
+    "graphql": "^14.5.4",
+    "lodash.merge": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/lodash.merge": "^4.6.6",
+    "typescript": "^3.6.2"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}

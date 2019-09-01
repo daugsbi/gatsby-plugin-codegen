@@ -1,0 +1,8 @@
+# node dependencies
+node_modules
+
+# experimental directory
+old
+
+# use yarn
+package-lock.json
