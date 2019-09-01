@@ -7,7 +7,7 @@ const { introspectionQuery, graphql } = require("gatsby/graphql");
 
 export interface PluginCodegenOptions {
   // Name of the generated apollo config file
-  apolloConfigName?: string;
+  apolloConfigFile?: string;
 
   // apollo:codegen options configured for usage with gatsby
   addTypename?: boolean;
@@ -34,7 +34,7 @@ export interface PluginCodegenOptions {
 }
 
 const defaultOptions = {
-  apolloConfigName: "apollo.config.js",
+  apolloConfigFile: "apollo.config.js",
   addTypename: false,
   excludes: [],
   localSchemaFile: "schema.json",
