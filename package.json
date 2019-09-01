@@ -2,6 +2,14 @@
   "name": "gatsby-plugin-generate-types",
   "version": "1.0.0",
   "description": "Wrapper of apollo:codegen to generate client side types from your queries as well as the gatsby schema & apollo config to provide autocomplete with apollographql.vscode-apollo",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-plugin-generate-types",
+    "apollo",
+    "generate-types",
+    "autocomplete"
+  ],
   "main": "index.js",
   "scripts": {
     "build": "tsc -p ./",
