@@ -89,7 +89,7 @@ export const onPostBootstrap: (
   const options = merge(defaultOptions, userOptions, mergeArraysCustomizer);
   const {
     addTypename,
-    apolloConfigName,
+    apolloConfigFile,
     excludes,
     includes,
     localSchemaFile,
@@ -113,9 +113,9 @@ export const onPostBootstrap: (
     reporter.success(`saved localSchemaFile: ${schemaFile}`, {});
 
     // Write apollo config
-    const apolloConfigFile = path.resolve(process.cwd(), apolloConfigName);
+    const apolloConfig = path.resolve(process.cwd(), apolloConfigFile);
     writeFile(
-      apolloConfigFile,
+      apolloConfig,
       `module.exports = {
   client: {
     addTypename: ${addTypename},
@@ -141,7 +141,7 @@ export const onPostBootstrap: (
         // Generate typings for specified target
         const apolloCodegenParams = [
           "client:codegen",
-          `--config=./${apolloConfigName}`,
+          `--config=./${apolloConfigFile}`,
           ...mapCodegenAdditionalFlags(additionalParams),
           `--target=${target}`,
           output

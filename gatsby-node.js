@@ -70,7 +70,7 @@ var lodash_mergewith_1 = __importDefault(require("lodash.mergewith"));
 var path = __importStar(require("path"));
 var _a = require("gatsby/graphql"), introspectionQuery = _a.introspectionQuery, graphql = _a.graphql;
 var defaultOptions = {
-    apolloConfigName: "apollo.config.js",
+    apolloConfigFile: "apollo.config.js",
     addTypename: false,
     excludes: [],
     localSchemaFile: "schema.json",
@@ -116,27 +116,27 @@ function mergeArraysCustomizer(objValue, srcValue) {
 exports.onPostBootstrap = function (_a, userOptions, callback) {
     var store = _a.store, actions = _a.actions, reporter = _a.reporter;
     return __awaiter(void 0, void 0, void 0, function () {
-        var options, addTypename, apolloConfigName, excludes, includes, localSchemaFile, output, tagName, target, plugins, additionalParams, schema, res, schemaFile;
+        var options, addTypename, apolloConfigFile, excludes, includes, localSchemaFile, output, tagName, target, plugins, additionalParams, schema, res, schemaFile;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     options = lodash_mergewith_1.default(defaultOptions, userOptions, mergeArraysCustomizer);
-                    addTypename = options.addTypename, apolloConfigName = options.apolloConfigName, excludes = options.excludes, includes = options.includes, localSchemaFile = options.localSchemaFile, output = options.output, tagName = options.tagName, target = options.target, plugins = options.plugins, additionalParams = __rest(options, ["addTypename", "apolloConfigName", "excludes", "includes", "localSchemaFile", "output", "tagName", "target", "plugins"]);
+                    addTypename = options.addTypename, apolloConfigFile = options.apolloConfigFile, excludes = options.excludes, includes = options.includes, localSchemaFile = options.localSchemaFile, output = options.output, tagName = options.tagName, target = options.target, plugins = options.plugins, additionalParams = __rest(options, ["addTypename", "apolloConfigFile", "excludes", "includes", "localSchemaFile", "output", "tagName", "target", "plugins"]);
                     schema = store.getState().schema;
                     return [4 /*yield*/, graphql(schema, introspectionQuery)];
                 case 1:
                     res = _b.sent();
                     schemaFile = path.resolve(process.cwd(), localSchemaFile);
                     fs_1.writeFile(schemaFile, JSON.stringify(res, null, 2), "utf8", function (err) { return __awaiter(void 0, void 0, void 0, function () {
-                        var apolloConfigFile;
+                        var apolloConfig;
                         return __generator(this, function (_a) {
                             if (err) {
                                 reporter.error("could not save localSchemaFile: " + schemaFile);
                                 callback && callback(err);
                             }
                             reporter.success("saved localSchemaFile: " + schemaFile, {});
-                            apolloConfigFile = path.resolve(process.cwd(), apolloConfigName);
-                            fs_1.writeFile(apolloConfigFile, "module.exports = {\n  client: {\n    addTypename: " + addTypename + ",\n    excludes: " + JSON.stringify(excludes) + ",\n    includes: " + JSON.stringify(includes) + ",\n    service: {\n      name: \"gatsbySchema\",\n      localSchemaFile: \"./" + localSchemaFile + "\"\n    },\n    tagName: \"" + tagName + "\"\n  }\n}", "utf8", function (err) { return __awaiter(void 0, void 0, void 0, function () {
+                            apolloConfig = path.resolve(process.cwd(), apolloConfigFile);
+                            fs_1.writeFile(apolloConfig, "module.exports = {\n  client: {\n    addTypename: " + addTypename + ",\n    excludes: " + JSON.stringify(excludes) + ",\n    includes: " + JSON.stringify(includes) + ",\n    service: {\n      name: \"gatsbySchema\",\n      localSchemaFile: \"./" + localSchemaFile + "\"\n    },\n    tagName: \"" + tagName + "\"\n  }\n}", "utf8", function (err) { return __awaiter(void 0, void 0, void 0, function () {
                                 var apolloCodegenParams, _a;
                                 return __generator(this, function (_b) {
                                     switch (_b.label) {
@@ -148,7 +148,7 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
                                             reporter.success("saved apollo config: " + apolloConfigFile);
                                             apolloCodegenParams = __spreadArrays([
                                                 "client:codegen",
-                                                "--config=./" + apolloConfigName
+                                                "--config=./" + apolloConfigFile
                                             ], mapCodegenAdditionalFlags(additionalParams), [
                                                 "--target=" + target,
                                                 output
