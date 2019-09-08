@@ -81,7 +81,11 @@ var defaultOptions = {
     includes: [
         "./src/**/*.tsx",
         "./src/**/*.ts",
-        "./node_modules/gatsby-*/**/*.js"
+        "./node_modules/gatsby-source-contentful/src/*.js",
+        "./node_modules/gatsby-transformer-sharp/src/*.js",
+        "./node_modules/gatsby-image/src/*.js"
+        // "./node_modules/gatsby-source-contentful/**/*.js"
+        // "./node_modules/gatsby-*/**/*.js"
     ],
     watch: process.env.NODE_ENV === "production" ? false : true
 };
@@ -131,10 +135,10 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
                         var apolloConfig;
                         return __generator(this, function (_a) {
                             if (err) {
-                                reporter.error("could not save localSchemaFile: " + localSchemaFile);
+                                reporter.error("[gatsby-plugin-codegen] could not save localSchemaFile: " + localSchemaFile);
                                 callback && callback(err);
                             }
-                            reporter.success("saved localSchemaFile: " + localSchemaFile, {});
+                            reporter.success("[gatsby-plugin-codegen] saved localSchemaFile: " + localSchemaFile);
                             apolloConfig = path.resolve(process.cwd(), apolloConfigFile);
                             fs_1.writeFile(apolloConfig, "module.exports = {\n  client: {\n    addTypename: " + addTypename + ",\n    excludes: " + JSON.stringify(excludes) + ",\n    includes: " + JSON.stringify(includes) + ",\n    service: {\n      name: \"gatsbySchema\",\n      localSchemaFile: \"./" + localSchemaFile + "\"\n    },\n    tagName: \"" + tagName + "\"\n  }\n}", "utf8", function (err) { return __awaiter(void 0, void 0, void 0, function () {
                                 var apolloCodegenParams, _a;
@@ -142,10 +146,10 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
                                     switch (_b.label) {
                                         case 0:
                                             if (err) {
-                                                reporter.error("could not save apollo config file: " + apolloConfigFile);
+                                                reporter.error("[gatsby-plugin-codegen] could not save apollo config file: " + apolloConfigFile);
                                                 callback && callback(err);
                                             }
-                                            reporter.success("saved apollo config: " + apolloConfigFile);
+                                            reporter.success("[gatsby-plugin-codegen] saved apollo config: " + apolloConfigFile);
                                             apolloCodegenParams = __spreadArrays([
                                                 "client:codegen",
                                                 "--config=./" + apolloConfigFile
