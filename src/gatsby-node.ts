@@ -107,10 +107,15 @@ export const onPostBootstrap: (
   const schemaFile = path.resolve(process.cwd(), localSchemaFile);
   writeFile(schemaFile, JSON.stringify(res, null, 2), "utf8", async err => {
     if (err) {
-      reporter.error(`could not save localSchemaFile: ${schemaFile}`);
+      reporter.error(
+        `[gatsby-plugin-codegen] could not save localSchemaFile: ${localSchemaFile}`
+      );
       callback && callback(err);
     }
-    reporter.success(`saved localSchemaFile: ${schemaFile}`, {});
+    reporter.success(
+      `[gatsby-plugin-codegen] saved localSchemaFile: ${localSchemaFile}`,
+      {}
+    );
 
     // Write apollo config
     const apolloConfig = path.resolve(process.cwd(), apolloConfigFile);
@@ -132,11 +137,13 @@ export const onPostBootstrap: (
       async err => {
         if (err) {
           reporter.error(
-            `could not save apollo config file: ${apolloConfigFile}`
+            `[gatsby-plugin-codegen] could not save apollo config file: ${apolloConfigFile}`
           );
           callback && callback(err);
         }
-        reporter.success(`saved apollo config: ${apolloConfigFile}`);
+        reporter.success(
+          `[gatsby-plugin-codegen] saved apollo config: ${apolloConfigFile}`
+        );
 
         // Generate typings for specified target
         const apolloCodegenParams = [

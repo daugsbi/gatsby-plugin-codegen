@@ -131,10 +131,10 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
                         var apolloConfig;
                         return __generator(this, function (_a) {
                             if (err) {
-                                reporter.error("could not save localSchemaFile: " + schemaFile);
+                                reporter.error("could not save localSchemaFile: " + localSchemaFile);
                                 callback && callback(err);
                             }
-                            reporter.success("saved localSchemaFile: " + schemaFile, {});
+                            reporter.success("saved localSchemaFile: " + localSchemaFile, {});
                             apolloConfig = path.resolve(process.cwd(), apolloConfigFile);
                             fs_1.writeFile(apolloConfig, "module.exports = {\n  client: {\n    addTypename: " + addTypename + ",\n    excludes: " + JSON.stringify(excludes) + ",\n    includes: " + JSON.stringify(includes) + ",\n    service: {\n      name: \"gatsbySchema\",\n      localSchemaFile: \"./" + localSchemaFile + "\"\n    },\n    tagName: \"" + tagName + "\"\n  }\n}", "utf8", function (err) { return __awaiter(void 0, void 0, void 0, function () {
                                 var apolloCodegenParams, _a;
