@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-codegen",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Wrapper of apollo:codegen to generate client side types from your queries as well as the gatsby schema & apollo config to provide autocomplete with apollographql.vscode-apollo",
   "keywords": [
     "gatsby",
