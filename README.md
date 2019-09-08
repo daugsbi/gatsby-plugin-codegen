@@ -66,7 +66,10 @@ const defaultOptions = {
   includes: [
     "./src/**/*.tsx",
     "./src/**/*.ts",
-    "./node_modules/gatsby-*/**/*.js"
+    "./node_modules/gatsby-source-contentful/src/*.js",
+    "./node_modules/gatsby-transformer-sharp/src/*.js",
+    "./node_modules/gatsby-image/src/*.js"
+    // "./node_modules/gatsby-*/**/*.js" Direct includes prefered, because of performance reasons
   ],
   watch: process.env.NODE_ENV === "production" ? false : true
 };
