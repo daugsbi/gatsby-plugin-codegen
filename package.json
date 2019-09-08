@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.6",
+    "gatsby": "^2.15.9",
     "typescript": "^3.6.2"
   },
   "peerDependencies": {
