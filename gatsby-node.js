@@ -165,7 +165,7 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
                                             _b.label = 3;
                                         case 3:
                                             _a;
-                                            reporter.success("generated types");
+                                            reporter.success("[gatsby-plugin-codegen] types for " + target + " generated");
                                             // Return Plugin
                                             callback && callback(null);
                                             return [2 /*return*/];

@@ -158,7 +158,9 @@ export const onPostBootstrap: (
         options.watch
           ? run(apolloCodegenParams)
           : await run(apolloCodegenParams);
-        reporter.success(`generated types`);
+        reporter.success(
+          `[gatsby-plugin-codegen] types for ${target} generated`
+        );
 
         // Return Plugin
         callback && callback(null);
