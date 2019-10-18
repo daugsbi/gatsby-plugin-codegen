@@ -140,7 +140,7 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
                             reporter.success("[gatsby-plugin-codegen] saved localSchemaFile: " + localSchemaFile);
                             apolloConfig = path.resolve(process.cwd(), apolloConfigFile);
                             fs_1.writeFile(apolloConfig, "module.exports = {\n  client: {\n    addTypename: " + addTypename + ",\n    excludes: " + JSON.stringify(excludes) + ",\n    includes: " + JSON.stringify(includes) + ",\n    service: {\n      name: \"gatsbySchema\",\n      localSchemaFile: \"./" + localSchemaFile + "\"\n    },\n    tagName: \"" + tagName + "\"\n  }\n}", "utf8", function (err) { return __awaiter(void 0, void 0, void 0, function () {
-                                var apolloCodegenParams, _a;
+                                var apolloCodegenParams, _a, e_1;
                                 return __generator(this, function (_b) {
                                     switch (_b.label) {
                                         case 0:
@@ -149,6 +149,9 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
                                                 callback && callback(err);
                                             }
                                             reporter.success("[gatsby-plugin-codegen] saved apollo config: " + apolloConfigFile);
+                                            _b.label = 1;
+                                        case 1:
+                                            _b.trys.push([1, 5, 6, 7]);
                                             apolloCodegenParams = __spreadArrays([
                                                 "client:codegen",
                                                 "--config=./" + apolloConfigFile
@@ -156,19 +159,26 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
                                                 "--target=" + target,
                                                 output
                                             ]);
-                                            if (!options.watch) return [3 /*break*/, 1];
+                                            if (!options.watch) return [3 /*break*/, 2];
                                             _a = apollo_1.run(apolloCodegenParams);
-                                            return [3 /*break*/, 3];
-                                        case 1: return [4 /*yield*/, apollo_1.run(apolloCodegenParams)];
-                                        case 2:
-                                            _a = _b.sent();
-                                            _b.label = 3;
+                                            return [3 /*break*/, 4];
+                                        case 2: return [4 /*yield*/, apollo_1.run(apolloCodegenParams)];
                                         case 3:
+                                            _a = _b.sent();
+                                            _b.label = 4;
+                                        case 4:
                                             _a;
                                             reporter.success("[gatsby-plugin-codegen] types for " + target + " generated");
+                                            return [3 /*break*/, 7];
+                                        case 5:
+                                            e_1 = _b.sent();
+                                            reporter.warn("[gatsby-plugin-codegen] could not generate types from queries - " + e_1.message);
+                                            return [3 /*break*/, 7];
+                                        case 6:
                                             // Return Plugin
                                             callback && callback(null);
-                                            return [2 /*return*/];
+                                            return [7 /*endfinally*/];
+                                        case 7: return [2 /*return*/];
                                     }
                                 });
                             }); });
