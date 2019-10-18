@@ -146,24 +146,30 @@ export const onPostBootstrap: (
         reporter.success(
           `[gatsby-plugin-codegen] saved apollo config: ${apolloConfigFile}`
         );
-
-        // Generate typings for specified target
-        const apolloCodegenParams = [
-          "client:codegen",
-          `--config=./${apolloConfigFile}`,
-          ...mapCodegenAdditionalFlags(additionalParams),
-          `--target=${target}`,
-          output
-        ];
-        options.watch
-          ? run(apolloCodegenParams)
-          : await run(apolloCodegenParams);
-        reporter.success(
-          `[gatsby-plugin-codegen] types for ${target} generated`
-        );
-
-        // Return Plugin
-        callback && callback(null);
+        // Throws an error when no queries are defined
+        try {
+          // Generate typings for specified target
+          const apolloCodegenParams = [
+            "client:codegen",
+            `--config=./${apolloConfigFile}`,
+            ...mapCodegenAdditionalFlags(additionalParams),
+            `--target=${target}`,
+            output
+          ];
+          options.watch
+            ? run(apolloCodegenParams)
+            : await run(apolloCodegenParams);
+          reporter.success(
+            `[gatsby-plugin-codegen] types for ${target} generated`
+          );
+        } catch (e) {
+          reporter.warn(
+            `[gatsby-plugin-codegen] could not generate types from queries - ${e.message}`
+          );
+        } finally {
+          // Return Plugin
+          callback && callback(null);
+        }
       }
     );
   });
