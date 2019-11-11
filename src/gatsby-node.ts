@@ -37,7 +37,7 @@ const defaultOptions = {
   apolloConfigFile: "apollo.config.js",
   addTypename: false,
   excludes: [],
-  localSchemaFile: "schema.json",
+  localSchemaFile: "./schema.json",
   output: "__generated__",
   target: "typescript",
   tagName: "graphql",
@@ -130,7 +130,7 @@ export const onPostBootstrap: (
     includes: ${JSON.stringify(includes)},
     service: {
       name: "gatsbySchema",
-      localSchemaFile: "./${localSchemaFile}"
+      localSchemaFile: "${localSchemaFile}"
     },
     tagName: "${tagName}"
   }
