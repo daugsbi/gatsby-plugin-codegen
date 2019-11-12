@@ -1,6 +1,6 @@
 # gatsby-plugin-codegen
 
-Generate Typescript/Flow definitions from your gatsby queries.
+Generate TypeScript/Flow definitions from your gatsby queries.
 
 Export schema and apollo config file to give autocomplete feature in vscode through apollographql.vscode-apollo (https://marketplace.visualstudio.com/items?itemName=apollographql.vscode-apollo).
 
@@ -58,7 +58,7 @@ const defaultOptions = {
   apolloConfigName: "apollo.config.js",
   addTypename: false,
   excludes: [],
-  localSchemaFile: "schema.json",
+  localSchemaFile: "./schema.json",
   output: "__generated__",
   target: "typescript",
   tagName: "graphql",

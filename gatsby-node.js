@@ -73,7 +73,7 @@ var defaultOptions = {
     apolloConfigFile: "apollo.config.js",
     addTypename: false,
     excludes: [],
-    localSchemaFile: "schema.json",
+    localSchemaFile: "./schema.json",
     output: "__generated__",
     target: "typescript",
     tagName: "graphql",
@@ -139,7 +139,7 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
                             }
                             reporter.success("[gatsby-plugin-codegen] saved localSchemaFile: " + localSchemaFile);
                             apolloConfig = path.resolve(process.cwd(), apolloConfigFile);
-                            fs_1.writeFile(apolloConfig, "module.exports = {\n  client: {\n    addTypename: " + addTypename + ",\n    excludes: " + JSON.stringify(excludes) + ",\n    includes: " + JSON.stringify(includes) + ",\n    service: {\n      name: \"gatsbySchema\",\n      localSchemaFile: \"./" + localSchemaFile + "\"\n    },\n    tagName: \"" + tagName + "\"\n  }\n}", "utf8", function (err) { return __awaiter(void 0, void 0, void 0, function () {
+                            fs_1.writeFile(apolloConfig, "module.exports = {\n  client: {\n    addTypename: " + addTypename + ",\n    excludes: " + JSON.stringify(excludes) + ",\n    includes: " + JSON.stringify(includes) + ",\n    service: {\n      name: \"gatsbySchema\",\n      localSchemaFile: \"" + localSchemaFile + "\"\n    },\n    tagName: \"" + tagName + "\"\n  }\n}", "utf8", function (err) { return __awaiter(void 0, void 0, void 0, function () {
                                 var apolloCodegenParams, _a, e_1;
                                 return __generator(this, function (_b) {
                                     switch (_b.label) {
