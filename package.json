@@ -23,7 +23,7 @@
   "author": "Denis Augsburger <denis.augsburger@twteam.ch> (https://twteam.ch)",
   "license": "MIT",
   "dependencies": {
-    "apollo": "^2.21.0",
+    "apollo": "^2.21.1",
     "graphql": "^14.5.8",
     "lodash.mergewith": "^4.6.2"
   },
