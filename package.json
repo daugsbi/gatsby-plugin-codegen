@@ -29,11 +29,14 @@
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.6",
-    "gatsby": "^2.15.15",
+    "gatsby": "^2.18.7",
     "typescript": "^3.6.3"
   },
   "peerDependencies": {
     "gatsby": "^2.0.0"
+  },
+  "resolutions": {
+    "**/**/serialize-javascript": "^2.1.1"
   },
   "engines": {
     "node": ">=8.0.0"
