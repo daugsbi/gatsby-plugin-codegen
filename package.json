@@ -25,7 +25,8 @@
   "dependencies": {
     "apollo": "^2.21.1",
     "graphql": "^14.5.8",
-    "lodash.mergewith": "^4.6.2"
+    "lodash.mergewith": "^4.6.2",
+    "serialize-javascript": "^2.1.1"
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.6",
