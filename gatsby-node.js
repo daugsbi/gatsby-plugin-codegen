@@ -158,6 +158,7 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
                                                 "client:codegen",
                                                 "--config=./" + apolloConfigFile
                                             ], mapCodegenAdditionalFlags(additionalParams), [
+                                                addTypename ? "--addTypename" : "--no-addTypename",
                                                 "--target=" + target,
                                                 output
                                             ]);

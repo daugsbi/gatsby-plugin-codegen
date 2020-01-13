@@ -155,6 +155,7 @@ export const onPostBootstrap: (
             "client:codegen",
             `--config=./${apolloConfigFile}`,
             ...mapCodegenAdditionalFlags(additionalParams),
+            addTypename ? "--addTypename" : "--no-addTypename",
             `--target=${target}`,
             output
           ];
