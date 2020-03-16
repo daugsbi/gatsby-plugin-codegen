@@ -52,7 +52,10 @@ const defaultOptions = {
     "./node_modules/gatsby-image/src/*.js"
     // "./node_modules/gatsby-*/**/*.js" Performance reasons
   ],
-  watch: process.env.NODE_ENV === "production" ? false : true
+  // True can result in missed error messages through the console
+  // Set it the following way to catch the errors during the build and still have watch mode:
+  // process.env.NODE_ENV === "development" ? true : false
+  watch: false
 };
 
 /**
