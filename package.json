@@ -25,19 +25,19 @@
   "dependencies": {
     "apollo": "^2.21.1",
     "graphql": "^14.5.8",
-    "lodash.mergewith": "^4.6.2",
-    "serialize-javascript": "^2.1.1"
+    "lodash.mergewith": "^4.6.2"
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.6",
-    "gatsby": "^2.18.7",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "gatsby": "2.22.12",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "typescript": "^3.6.3"
   },
   "peerDependencies": {
     "gatsby": "^2.0.0"
-  },
-  "resolutions": {
-    "**/**/serialize-javascript": "^2.1.1"
   },
   "engines": {
     "node": ">=8.0.0"
