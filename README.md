@@ -64,6 +64,9 @@ const defaultOptions = {
   tagName: "graphql",
   tsFileExtension: "d.ts",
   includes: [
+    "./src/**/*.tsx",
+    "./src/**/*.ts",
+    "./plugins/**/*.js",
     "./node_modules/gatsby-source-contentful/src/fragments.js",
     "./node_modules/gatsby-source-datocms/fragments/*.js",
     "./node_modules/gatsby-source-sanity/fragments/*.js",
