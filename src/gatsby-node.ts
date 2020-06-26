@@ -46,16 +46,16 @@ const defaultOptions = {
     "./src/**/*.tsx",
     "./src/**/*.ts",
     "./plugins/**/*.js",
-    "./node_modules/gatsby-source-contentful/src/*.js",
+    "./node_modules/gatsby-source-contentful/src/fragments.js",
     "./node_modules/gatsby-source-datocms/fragments/*.js",
-    "./node_modules/gatsby-transformer-sharp/src/*.js",
-    "./node_modules/gatsby-image/src/*.js"
+    "./node_modules/gatsby-source-sanity/fragments/*.js",
+    "./node_modules/gatsby-transformer-sharp/src/fragments.js",
     // "./node_modules/gatsby-*/**/*.js" Performance reasons
   ],
   // True can result in missed error messages through the console
   // Set it the following way to catch the errors during the build and still have watch mode:
   // process.env.NODE_ENV === "development" ? true : false
-  watch: false
+  watch: false,
 };
 
 /**
