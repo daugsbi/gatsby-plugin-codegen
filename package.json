@@ -36,6 +36,9 @@
     "react-dom": "^16.13.1",
     "typescript": "^3.6.3"
   },
+  "resolutions": {
+    "**/lodash": "^4.17.19"
+  },
   "peerDependencies": {
     "gatsby": "^2.0.0"
   },
