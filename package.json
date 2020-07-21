@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/daugsbi/gatsby-plugin-codegen"
   },
-  "version": "1.2.11",
+  "version": "1.2.14",
   "description": "Wrapper of apollo:codegen to generate client side types from your queries as well as the gatsby schema & apollo config to provide autocomplete with apollographql.vscode-apollo",
   "keywords": [
     "gatsby",
@@ -23,7 +23,8 @@
   "author": "Denis Augsburger <denis.augsburger@twteam.ch> (https://twteam.ch)",
   "license": "MIT",
   "dependencies": {
-    "apollo": "2.21.3",
+    "apollo": "^2.21.1",
+    "graphql": "^14.5.8",
     "lodash.mergewith": "^4.6.2"
   },
   "devDependencies": {
@@ -36,8 +37,7 @@
     "typescript": "^3.6.3"
   },
   "resolutions": {
-    "**/lodash": "^4.17.19",
-    "graphql": "^14.5.8"
+    "**/lodash": "^4.17.19"
   },
   "peerDependencies": {
     "gatsby": "^2.0.0"
