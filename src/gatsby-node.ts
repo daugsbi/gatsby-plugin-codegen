@@ -3,7 +3,7 @@ import { writeFile } from "fs";
 import { NodePluginArgs, PluginCallback } from "gatsby";
 import merge from "lodash.mergewith";
 import * as path from "path";
-const { introspectionQuery, graphql } = require("gatsby/graphql");
+const { getIntrospectionQuery, graphql } = require("gatsby/graphql");
 
 export interface PluginCodegenOptions {
   // Name of the generated apollo config file
@@ -110,10 +110,10 @@ export const onPostBootstrap: (
 
   // Resolve gatsby's schema and write it to localSchemaFile
   const { schema } = store.getState();
-  const res = await graphql(schema, introspectionQuery);
+  const res = await graphql(schema, getIntrospectionQuery());
 
   const schemaFile = path.resolve(process.cwd(), localSchemaFile);
-  writeFile(schemaFile, JSON.stringify(res, null, 2), "utf8", async err => {
+  writeFile(schemaFile, JSON.stringify(res, null, 2), "utf8", async (err) => {
     if (err) {
       reporter.error(
         `[gatsby-plugin-codegen] could not save localSchemaFile: ${localSchemaFile}`
@@ -141,7 +141,7 @@ export const onPostBootstrap: (
   }
 }`,
       "utf8",
-      async err => {
+      async (err) => {
         if (err) {
           reporter.error(
             `[gatsby-plugin-codegen] could not save apollo config file: ${apolloConfigFile}`
@@ -160,7 +160,7 @@ export const onPostBootstrap: (
             ...mapCodegenAdditionalFlags(additionalParams),
             addTypename ? "--addTypename" : "--no-addTypename",
             `--target=${target}`,
-            output
+            output,
           ];
           options.watch
             ? run(apolloCodegenParams)

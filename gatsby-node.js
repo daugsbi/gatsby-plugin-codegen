@@ -81,7 +81,7 @@ var apollo_1 = require("apollo");
 var fs_1 = require("fs");
 var lodash_mergewith_1 = __importDefault(require("lodash.mergewith"));
 var path = __importStar(require("path"));
-var _a = require("gatsby/graphql"), introspectionQuery = _a.introspectionQuery, graphql = _a.graphql;
+var _a = require("gatsby/graphql"), getIntrospectionQuery = _a.getIntrospectionQuery, graphql = _a.graphql;
 var defaultOptions = {
     apolloConfigFile: "apollo.config.js",
     addTypename: false,
@@ -143,7 +143,7 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
                     options = lodash_mergewith_1.default(defaultOptions, userOptions, mergeArraysCustomizer);
                     addTypename = options.addTypename, apolloConfigFile = options.apolloConfigFile, excludes = options.excludes, includes = options.includes, localSchemaFile = options.localSchemaFile, output = options.output, tagName = options.tagName, target = options.target, plugins = options.plugins, additionalParams = __rest(options, ["addTypename", "apolloConfigFile", "excludes", "includes", "localSchemaFile", "output", "tagName", "target", "plugins"]);
                     schema = store.getState().schema;
-                    return [4 /*yield*/, graphql(schema, introspectionQuery)];
+                    return [4 /*yield*/, graphql(schema, getIntrospectionQuery())];
                 case 1:
                     res = _b.sent();
                     schemaFile = path.resolve(process.cwd(), localSchemaFile);
@@ -175,7 +175,7 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
                                             ], mapCodegenAdditionalFlags(additionalParams), [
                                                 addTypename ? "--addTypename" : "--no-addTypename",
                                                 "--target=" + target,
-                                                output
+                                                output,
                                             ]);
                                             if (!options.watch) return [3 /*break*/, 2];
                                             _a = apollo_1.run(apolloCodegenParams);

@@ -24,7 +24,6 @@
   "license": "MIT",
   "dependencies": {
     "apollo": "^2.21.1",
-    "graphql": "^14.5.8",
     "lodash.mergewith": "^4.6.2"
   },
   "devDependencies": {
@@ -40,7 +39,7 @@
     "**/lodash": "^4.17.19"
   },
   "peerDependencies": {
-    "gatsby": "^2.0.0"
+    "gatsby": "^3.0.0"
   },
   "engines": {
     "node": ">=8.0.0"
