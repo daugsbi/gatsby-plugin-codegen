@@ -14,7 +14,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -65,12 +65,10 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-var __spreadArrays = (this && this.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
 };
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -99,6 +97,7 @@ var defaultOptions = {
         "./node_modules/gatsby-source-datocms/fragments/*.js",
         "./node_modules/gatsby-source-sanity/fragments/*.js",
         "./node_modules/gatsby-transformer-sharp/src/fragments.js",
+        // "./node_modules/gatsby-*/**/*.js" Performance reasons
     ],
     // True can result in missed error messages through the console
     // Set it the following way to catch the errors during the build and still have watch mode:
@@ -133,7 +132,7 @@ function mergeArraysCustomizer(objValue, srcValue) {
 /**
  * Gatsby Plugin API to create schema, apollo config and generated types
  */
-exports.onPostBootstrap = function (_a, userOptions, callback) {
+var onPostBootstrap = function (_a, userOptions, callback) {
     var store = _a.store, actions = _a.actions, reporter = _a.reporter;
     return __awaiter(void 0, void 0, void 0, function () {
         var options, addTypename, apolloConfigFile, excludes, includes, localSchemaFile, output, tagName, target, plugins, additionalParams, schema, res, schemaFile;
@@ -169,10 +168,10 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
                                             _b.label = 1;
                                         case 1:
                                             _b.trys.push([1, 5, 6, 7]);
-                                            apolloCodegenParams = __spreadArrays([
+                                            apolloCodegenParams = __spreadArray(__spreadArray([
                                                 "client:codegen",
                                                 "--config=./" + apolloConfigFile
-                                            ], mapCodegenAdditionalFlags(additionalParams), [
+                                            ], mapCodegenAdditionalFlags(additionalParams)), [
                                                 addTypename ? "--addTypename" : "--no-addTypename",
                                                 "--target=" + target,
                                                 output,
@@ -208,3 +207,4 @@ exports.onPostBootstrap = function (_a, userOptions, callback) {
         });
     });
 };
+exports.onPostBootstrap = onPostBootstrap;
