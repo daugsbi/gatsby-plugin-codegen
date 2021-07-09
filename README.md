@@ -8,19 +8,6 @@ Export schema and apollo config file to give autocomplete feature in vscode thro
 
 `npm install --save gatsby-plugin-codegen`
 
-### Important
-Currently the underlying apollo package uses a newer version of graphql. As a temporary workaround use yarn and add the resolution of the graphql package yourself. 
-
-```javascript
-// In your package.json
-"dependencies": { ... },
-"resolutions": {
-  "graphql": "^14.6.0"
-}
-```
-
-Because the apollo package is split in different packages, which require all the newest version of the apollo-language-server, it is not possible to revert these changes. Please let me know or provide a PR if you have a better idea. 
-
 ## How to use
 
 ```javascript
@@ -92,3 +79,4 @@ const defaultOptions = {
   watch: false
 };
 ```
+ 
